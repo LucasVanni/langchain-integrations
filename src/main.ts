@@ -1,20 +1,17 @@
 import 'dotenv/config';
-
-import { OpenAI } from "langchain/llms/openai";
+import { ModelTeste } from './model';
+// import { Templates } from './compositor';
 
 const main = async () => {
   try {
-    const model = new OpenAI({ openAIApiKey: process.env.OPEN_AI_API_KEY, temperature: 0 });
-
-    const res = await model.call(
-      "Generate a text about a topic of your choice.",
-    )
-
-    console.log(res);
+    // await Templates();
+    await ModelTeste();
   } catch (e) {
     console.log(e);
+    // if (e instanceof Error) {
+    //   throw new Error(e?.message);
+    // }
   }
-
-}
+};
 
 main();
